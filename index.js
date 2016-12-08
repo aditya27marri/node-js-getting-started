@@ -161,7 +161,7 @@ app.get('/', function(request, response) {
 });
 
 // Webhook setup
-app.get('/webhook', (req, res) => {
+/*app.get('/webhook', (req, res) => {
   if (req.query['hub.mode'] === 'subscribe' &&
     req.query['hub.verify_token'] === FB_VERIFY_TOKEN) {
     res.send(req.query['hub.challenge']);
@@ -232,7 +232,7 @@ app.post('/webhook', (req, res) => {
     });
   }
   res.sendStatus(200);
-});
+});*/
 
 /*
  * Verify that the callback came from Facebook. Using the App Secret from
