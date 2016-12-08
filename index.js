@@ -86,7 +86,7 @@ const fbMessage = (id, text) => {
 // This will contain all user sessions.
 // Each session has an entry:
 // sessionId -> {fbid: facebookUserId, context: sessionState}
-const sessions = {};
+/*const sessions = {};
 
 const findOrCreateSession = (fbid) => {
   let sessionId;
@@ -106,7 +106,7 @@ const findOrCreateSession = (fbid) => {
 };
 
 // Our bot actions
-/*const actions = {
+const actions = {
   send({sessionId}, {text}) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
@@ -140,7 +140,7 @@ const wit = new Wit({
   accessToken: WIT_TOKEN,
   actions,
   logger: new log.Logger(log.INFO)
-});*/
+});
 
 // Starting our webserver and putting it all together
 const app = express();
@@ -150,7 +150,11 @@ app.use(({method, url}, rsp, next) => {
   });
   next();
 });
-app.use(bodyParser.json({ verify: verifyRequestSignature }));
+app.use(bodyParser.json({ verify: verifyRequestSignature }));*/
+var app = express();
+
+
+app.listen((process.env.PORT || 3000));
 
 app.get('/', function(request, response) {
   response.send('This is TestBot Server');
