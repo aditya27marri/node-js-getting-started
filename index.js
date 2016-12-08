@@ -6,6 +6,8 @@
   interactive: require('./lib/interactive')
 };*/
 
+
+
 // Messenger API integration example
 // We assume you have:
 // * a Wit.ai bot setup (https://wit.ai/docs/quickstart)
@@ -263,4 +265,4 @@ function verifyRequestSignature(req, res, buf) {
     }
   }
 }
-app.listen((process.env.PORT || 8080));
+
