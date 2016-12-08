@@ -101,7 +101,7 @@ const findOrCreateSession = (fbid) => {
 };
 
 // Our bot actions
-const actions = {
+ /*const actions = {
   send({sessionId}, {text}) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
@@ -128,7 +128,7 @@ const actions = {
   },
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
-};
+};*/
 
 // Setting up our bot
 const wit = new Wit({
