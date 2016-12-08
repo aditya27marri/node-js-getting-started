@@ -1,10 +1,10 @@
 
-//'use strict';
-/*module.exports = {
+use strict;
+module.exports = {
   log: require('./lib/log'),
   Wit: require('./lib/wit'),
   interactive: require('./lib/interactive')
-};*/
+};
 
 
 
@@ -27,7 +27,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 const request = require('request');
 
-/*let Wit = null;
+let Wit = null;
 let log = null;
 try {
   // if running from repo
@@ -36,12 +36,12 @@ try {
 } catch (e) {
   Wit = require('node-wit').Wit;
   log = require('node-wit').log;
-}*/
+}
 
 // Webserver parameter
 
 // Wit.ai parameters
-//const WIT_TOKEN = process.env.WIT_TOKEN || "ZHL4L74J6GQR3MRUVSNVURYCKSSSMLBJ";
+const WIT_TOKEN = process.env.WIT_TOKEN || "ZHL4L74J6GQR3MRUVSNVURYCKSSSMLBJ";
 
 // Messenger API parameters
 const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || "EAANCNsgHwX8BAETPdTRBp9CANAK2mwn0bCDgQbeK15AXt91vTBtj1zwuN4df5N6ZBY4OALUCTNvfyvrxqO2DBmZAT0FeVZBeBalHtbXbsbNQOZCfLu2j4HVKhM1tGzIFfnJmyeRczFERACmfSNfcwjWZAntfpOUZCU1S0ubRGjhAZDZD";
@@ -88,7 +88,7 @@ const fbMessage = (id, text) => {
 // This will contain all user sessions.
 // Each session has an entry:
 // sessionId -> {fbid: facebookUserId, context: sessionState}
-/*const sessions = {};
+const sessions = {};
 
 const findOrCreateSession = (fbid) => {
   let sessionId;
@@ -152,7 +152,7 @@ app.use(({method, url}, rsp, next) => {
   });
   next();
 });
-app.use(bodyParser.json({ verify: verifyRequestSignature }));*/
+app.use(bodyParser.json({ verify: verifyRequestSignature }));
 var app = express();
 
 
@@ -191,10 +191,10 @@ app.post('/webhook', (req, res) => {
 
           // We retrieve the user's current session, or create one if it doesn't exist
           // This is needed for our bot to figure out the conversation history
-//          const sessionId = findOrCreateSession(sender);
+          const sessionId = findOrCreateSession(sender);
 
           // We retrieve the message content
-//          const {text, attachments} = event.message;
+          const {text, attachments} = event.message;
 
           if (attachments) {
             // We received an attachment
@@ -206,7 +206,7 @@ app.post('/webhook', (req, res) => {
 
             // Let's forward the message to the Wit.ai Bot Engine
             // This will run all actions until our bot has nothing left to do
-/*            wit.runActions(
+           wit.runActions(
               sessionId, // the user's current session
               text, // the user's message
               sessions[sessionId].context // the user's current session state
@@ -223,11 +223,11 @@ app.post('/webhook', (req, res) => {
               // }
 
               // Updating the user's current session state
-/*              sessions[sessionId].context = context;
+              sessions[sessionId].context = context;
             })
             .catch((err) => {
               console.error('Oops! Got an error from Wit: ', err.stack || err);
-            })*/
+            })
           }
         } else {
           console.log('received event', JSON.stringify(event));
