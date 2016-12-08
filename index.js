@@ -25,7 +25,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 const request = require('request');
 
-let Wit = null;
+/*let Wit = null;
 let log = null;
 try {
   // if running from repo
@@ -34,7 +34,7 @@ try {
 } catch (e) {
   Wit = require('node-wit').Wit;
   log = require('node-wit').log;
-}
+}*/
 
 // Webserver parameter
 
