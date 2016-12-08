@@ -44,7 +44,7 @@ try {
 //const WIT_TOKEN = process.env.WIT_TOKEN || "ZHL4L74J6GQR3MRUVSNVURYCKSSSMLBJ";
 
 // Messenger API parameters
-const FB_PAGE_TOKEN =  "EAANCNsgHwX8BAETPdTRBp9CANAK2mwn0bCDgQbeK15AXt91vTBtj1zwuN4df5N6ZBY4OALUCTNvfyvrxqO2DBmZAT0FeVZBeBalHtbXbsbNQOZCfLu2j4HVKhM1tGzIFfnJmyeRczFERACmfSNfcwjWZAntfpOUZCU1S0ubRGjhAZDZD";
+const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || "EAANCNsgHwX8BAETPdTRBp9CANAK2mwn0bCDgQbeK15AXt91vTBtj1zwuN4df5N6ZBY4OALUCTNvfyvrxqO2DBmZAT0FeVZBeBalHtbXbsbNQOZCfLu2j4HVKhM1tGzIFfnJmyeRczFERACmfSNfcwjWZAntfpOUZCU1S0ubRGjhAZDZD";
 if (!FB_PAGE_TOKEN) { throw new Error('missing FB_PAGE_TOKEN') }
 const FB_APP_SECRET = process.env.FB_APP_SECRET || "917227981750655|Hz7StAXlMMqKgcWdQzf0vkg_OSo";
 if (!FB_APP_SECRET) { throw new Error('missing FB_APP_SECRET') }
@@ -165,7 +165,7 @@ app.get('/', function(request, response) {
 // Webhook setup
 app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === FB_PAGE_TOKEN) {
+      req.query['hub.verify_token'] === "testbot_verify_token") {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
   } else {
