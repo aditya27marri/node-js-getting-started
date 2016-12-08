@@ -1,4 +1,10 @@
+
 'use strict';
+module.exports = {
+  log: require('./lib/log'),
+  Wit: require('./lib/wit'),
+  interactive: require('./lib/interactive')
+};
 
 // Messenger API integration example
 // We assume you have:
@@ -31,7 +37,6 @@ try {
 }
 
 // Webserver parameter
-const PORT = process.env.PORT || 8445;
 
 // Wit.ai parameters
 const WIT_TOKEN = process.env.WIT_TOKEN || "ZHL4L74J6GQR3MRUVSNVURYCKSSSMLBJ";
@@ -133,7 +138,7 @@ const actions = {
 // Setting up our bot
 const wit = new Wit({
   accessToken: WIT_TOKEN,
- // actions,
+  actions,
   logger: new log.Logger(log.INFO)
 });
 
@@ -254,11 +259,4 @@ function verifyRequestSignature(req, res, buf) {
     }
   }
 }
-
-app.listen(PORT);
-console.log('Listening on :' + PORT + '...');
-
-
-
-
-
+app.listen((process.env.PORT || 8080));
