@@ -48,8 +48,7 @@ const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || "EAANCNsgHwX8BAETPdTRBp9CANAK
 if (!FB_PAGE_TOKEN) { throw new Error('missing FB_PAGE_TOKEN') }
 const FB_APP_SECRET = process.env.FB_APP_SECRET || "917227981750655|Hz7StAXlMMqKgcWdQzf0vkg_OSo";
 if (!FB_APP_SECRET) { throw new Error('missing FB_APP_SECRET') }
-
-//let FB_VERIFY_TOKEN = null;
+let FB_VERIFY_TOKEN = null;
 crypto.randomBytes(8, (err, buff) => {
   if (err) throw err;
   FB_VERIFY_TOKEN = buff.toString('hex');
@@ -153,8 +152,6 @@ app.use(({method, url}, rsp, next) => {
   next();
 });
 app.use(bodyParser.json({ verify: verifyRequestSignature }));
-var app = express();
-
 
 app.listen((process.env.PORT || 3000));
 
