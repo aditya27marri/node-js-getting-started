@@ -164,11 +164,14 @@ app.get('/', function(request, response) {
 
 // Webhook setup
 app.get('/webhook', (req, res) => {
-  if (req.query['hub.mode'] === 'subscribe' &&
+	if (req.query['hub.verify_token'] === 'testbot_verify_token') {
+      res.send(req.query['hub.challenge']);
+
+ /* if (req.query['hub.mode'] === 'subscribe' &&
     req.query['hub.verify_token'] === FB_VERIFY_TOKEN) {
-    res.send(req.query['hub.challenge']);
+    res.send(req.query['hub.challenge']);*/
+    
   } else {
-  	res.send("1626891066");
     res.sendStatus(200);
   }
 });
