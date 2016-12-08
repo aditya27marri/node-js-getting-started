@@ -29,7 +29,6 @@
     "request": "^2.72.0",
     "fetch":"*",
     "crypto":"*",
-    "babel-register":"*"
   },
   "repository": {
     "type": "git",
