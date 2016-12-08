@@ -28,11 +28,21 @@
     "node-wit": "^4.2.0",
     "request": "^2.72.0",
     "fetch":"*",
-    "crypto":"*"
+    "crypto":"*",
+    "babel-register":"*"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.4",
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6"
   },
   "license": "MIT"
 }
