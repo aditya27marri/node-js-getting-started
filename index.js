@@ -1,10 +1,10 @@
 
 'use strict';
-module.exports = {
+/*module.exports = {
   log: require('./lib/log'),
   Wit: require('./lib/wit'),
   interactive: require('./lib/interactive')
-};
+};*/
 
 // Messenger API integration example
 // We assume you have:
