@@ -39,7 +39,7 @@ try {
 // Webserver parameter
 
 // Wit.ai parameters
-const WIT_TOKEN = process.env.WIT_TOKEN || "ZHL4L74J6GQR3MRUVSNVURYCKSSSMLBJ";
+//const WIT_TOKEN = process.env.WIT_TOKEN || "ZHL4L74J6GQR3MRUVSNVURYCKSSSMLBJ";
 
 // Messenger API parameters
 const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || "EAANCNsgHwX8BAETPdTRBp9CANAK2mwn0bCDgQbeK15AXt91vTBtj1zwuN4df5N6ZBY4OALUCTNvfyvrxqO2DBmZAT0FeVZBeBalHtbXbsbNQOZCfLu2j4HVKhM1tGzIFfnJmyeRczFERACmfSNfcwjWZAntfpOUZCU1S0ubRGjhAZDZD";
@@ -161,7 +161,7 @@ app.get('/', function(request, response) {
 });
 
 // Webhook setup
-/*app.get('/webhook', (req, res) => {
+app.get('/webhook', (req, res) => {
   if (req.query['hub.mode'] === 'subscribe' &&
     req.query['hub.verify_token'] === FB_VERIFY_TOKEN) {
     res.send(req.query['hub.challenge']);
@@ -187,7 +187,7 @@ app.post('/webhook', (req, res) => {
 
           // We retrieve the user's current session, or create one if it doesn't exist
           // This is needed for our bot to figure out the conversation history
-          const sessionId = findOrCreateSession(sender);
+//          const sessionId = findOrCreateSession(sender);
 
           // We retrieve the message content
           const {text, attachments} = event.message;
@@ -202,13 +202,13 @@ app.post('/webhook', (req, res) => {
 
             // Let's forward the message to the Wit.ai Bot Engine
             // This will run all actions until our bot has nothing left to do
-            wit.runActions(
+/*            wit.runActions(
               sessionId, // the user's current session
               text, // the user's message
               sessions[sessionId].context // the user's current session state
             ).then((context) => {
               // Our bot did everything it has to do.
-              // Now it's waiting for further messages to proceed.
+              // Now it's waiting for further messages to proceed.*/
               console.log('Waiting for next user messages');
 
               // Based on the session state, you might want to reset the session.
@@ -219,11 +219,11 @@ app.post('/webhook', (req, res) => {
               // }
 
               // Updating the user's current session state
-              sessions[sessionId].context = context;
+/*              sessions[sessionId].context = context;
             })
             .catch((err) => {
               console.error('Oops! Got an error from Wit: ', err.stack || err);
-            })
+            })*/
           }
         } else {
           console.log('received event', JSON.stringify(event));
@@ -232,7 +232,7 @@ app.post('/webhook', (req, res) => {
     });
   }
   res.sendStatus(200);
-});*/
+});
 
 /*
  * Verify that the callback came from Facebook. Using the App Secret from
