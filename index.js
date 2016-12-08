@@ -106,7 +106,7 @@ const findOrCreateSession = (fbid) => {
 };
 
 // Our bot actions
-const actions = {
+/*const actions = {
   send({sessionId}, {text}) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
@@ -140,7 +140,7 @@ const wit = new Wit({
   accessToken: WIT_TOKEN,
   actions,
   logger: new log.Logger(log.INFO)
-});
+});*/
 
 // Starting our webserver and putting it all together
 const app = express();
